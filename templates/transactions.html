@@ -8,15 +8,21 @@
         body {
             background: linear-gradient(to right, #f6d365, #fda085);
             color: #333;
+            font-family: Arial, sans-serif;
         }
 
         .container {
             border: 2px solid #f6d365;
             border-radius: 15px;
-            padding: 20px;
+            padding: 30px;
             margin: 20px auto;
             background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
         .transaction-table {
@@ -32,17 +38,47 @@
         .btn-primary {
             background-color: #f6d365;
             border-color: #f6d365;
+            font-size: 0.9rem;
         }
 
         .btn-primary:hover {
             background-color: #f6d365;
             border-color: #f6d365;
         }
+
+        .btn-search {
+            background-color: #fda085;
+            border-color: #fda085;
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        .btn-search:hover {
+            background-color: #fda085;
+            border-color: #fda085;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="text-center">Transaction Records</h1>
+
+        <!-- Search Button aligned to the right -->
+        <div class="d-flex justify-content-end mb-3">
+            <a class="btn btn-search" href="{{ url_for('search_transactions') }}">Search Transactions</a>
+        </div>
 
         <table class="table transaction-table">
             <thead>
@@ -66,7 +102,8 @@
             </tbody>
         </table>
 
-        <div class="d-flex justify-content-center">
+        <!-- Add Transaction Button placed at the bottom -->
+        <div class="d-flex justify-content-center mt-3">
             <a class="btn btn-success" href="{{ url_for('add_transaction') }}">Add Transaction</a>
         </div>
     </div>
