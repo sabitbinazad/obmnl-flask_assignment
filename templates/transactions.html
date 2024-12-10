@@ -69,6 +69,18 @@
             background-color: #218838;
             border-color: #1e7e34;
         }
+
+        .btn-info {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #117a8b;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +90,7 @@
         <!-- Search Button aligned to the right -->
         <div class="d-flex justify-content-end mb-3">
             <a class="btn btn-search" href="{{ url_for('search_transactions') }}">Search Transactions</a>
+            <a class="btn btn-info ml-2" href="{{ url_for('total_balance') }}">Total Balance</a>
         </div>
 
         <table class="table transaction-table">
@@ -101,6 +114,13 @@
                 {% endfor %}
             </tbody>
         </table>
+
+        <!-- Display the Total Balance -->
+        {% if total_balance is not none %}
+            <div class="text-center mt-3">
+                <h3>Total Balance: {{ total_balance }}</h3>
+            </div>
+        {% endif %}
 
         <!-- Add Transaction Button placed at the bottom -->
         <div class="d-flex justify-content-center mt-3">

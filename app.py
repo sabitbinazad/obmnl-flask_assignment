@@ -103,7 +103,13 @@ def search_transactions():
     # If GET request, render the search form
     return render_template('search.html')
 
-
+@app.route('/balance')
+def total_balance():
+    # Calculate the total balance by summing the amount values
+    total = sum(transaction["amount"] for transaction in transactions)
+    
+    # Render the transactions page and pass the total balance to the template
+    return render_template('transactions.html', transactions=transactions, total_balance=total)
 
 # Run the Flask app
 if __name__ == "__main__":
